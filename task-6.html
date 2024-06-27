@@ -1,126 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS-6</title>
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f3f3f3;
+        .margin-down{
+            margin-bottom: 1rem;
         }
-        .login-container {
-            background-color: white;
-            padding: 20px;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 300px;
-        }
-        .login-container h1 {
-            font-family: 'Instagram Sans', cursive;
-            margin-bottom: 20px;
-        }
-        .login-container input[type="text"],
-        .login-container input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .login-container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #3897f0;
-            border: none;
-            color: white;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .login-container button:hover {
-            background-color: #307ae0;
-        }
-        .login-container .error {
-            color: red;
-            font-size: 14px;
-        }
-        .login-container .links {
-            margin-top: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .login-container .links label {
-            display: flex;
-            align-items: center;
-        }
-        .login-container .links a {
-            color: #3897f0;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .login-container .links a:hover {
-            text-decoration: underline;
+      .shadow-sm {
+            box-shadow: 0 0.25rem 0.55rem rgba(0, 0, 0, 0.075) !important;
         }
     </style>
-</head>
-<body>
-    <div class="login-container">
-        <h1>Instagram</h1>
-        <form id="loginForm">
-            <input type="text" id="username" name="username" placeholder="Username">
-            <span id="usernameError" class="error"></span>
-            <input type="password" id="password" name="password" placeholder="Password">
-            <span id="passwordError" class="error"></span>
-            <button type="button" onclick="validateForm()">Log in</button>
-            <div class="links">
-                <label>
-                    <input type="checkbox" name="remember"> Remember me
-                </label>
+  </head>
+  <body>
+    <div class="d-flex flex-column justify-content-center align-items-center mt-5">
+        <form action="" class="bg-light w-25 px-5 py-3 shadow-sm mb-3 border-bottom">
+            <h3 class="text-center margin-down"
+                style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: italic;">Instagram</h3>
+            <div class="margin-down">
+                <div class="input-group">
+                    <span class="input-group-text" id="userIcon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control p-2" aria-describedby="userIcon" placeholder="Username" required>
+                </div>
+            </div>
+            <div class="margin-down">
+                <div class="input-group">
+                    <span class="input-group-text" id="passwordIcon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                    <input type="password" class="form-control p-2" aria-describedby="passwordIcon" placeholder="Password" required>
+                </div>
+            </div>
+            <div class="margin-down">
+                <input type="submit" value="Log In" class="btn btn-primary form-control">
+            </div>
+            <div class="d-flex justify-content-around margin-down">
+                <div>
+                    <input type="checkbox" name="" id="rememberMe" class="">
+                    <label for="rememberMe" class="form-check-label">Remember Me</label>
+                </div>
                 <a href="#">Forgot Password?</a>
             </div>
-            <div class="links">
-                <p>Don't have an account? <a href="#">Sign up here.</a></p>
-            </div>
         </form>
+        <p>Don't have an account?<a href="#">Sign Up here.</a></p>
     </div>
-
-    <script>
-        function validateForm() {
-            // Clear previous error messages
-            document.getElementById("usernameError").innerText = "";
-            document.getElementById("passwordError").innerText = "";
-
-            // Get form values
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-
-            var isValid = true;
-
-            // Validate Username
-            if (username === "") {
-                document.getElementById("usernameError").innerText = "This field is required";
-                isValid = false;
-            }
-
-            // Validate Password
-            if (password === "") {
-                document.getElementById("passwordError").innerText = "This field is required";
-                isValid = false;
-            }
-
-            if (isValid) {
-                // Form is valid, you can submit it
-                alert("Login successful!");
-                // document.getElementById("loginForm").submit(); // Uncomment this line to submit the form
-            }
-        }
-    </script>
-</body>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
 </html>
