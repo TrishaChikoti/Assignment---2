@@ -3,28 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS-1</title>
+    <title>Document</title>
 </head>
 <body>
-    <h2>Reversing a number</h2>
-    <p>let the actual number be</p>
-    <p id="emo"></p>
-    <p>Reversing the number we get..</p>
-    <p id="demo"></p>
+    <label for="num"> enter number</label>
+    <input type="number" name="" id="num" onkeyup="reversenumber()">
+    <br><br><br>
+    <div id="resultNum"></div>
+    <br><br><br>
+    <!-- <h1>Function used</h1> -->
+    <!-- <pre>
+        function reversenumber() {
+            let number = document.getElementById("num").value;
+            let result = 0;
+
+            while (number > 0) {
+                rightmost = number % 10;
+                result = result * 10 + rightmost;
+                number = Math.floor(number / 10);
+            }
+            document.getElementById("resultNum").innerText = "After reversing the number : " + result; 
+
+    } -->
+    </pre>
     <script>
-        function reverseNumber(num) 
-        {
-        // Convert the number to a string
-        let strNum = num.toString();
-        // Reverse the string
-        let reversedStrNum = strNum.split('').reverse().join('');
-        // Convert the reversed string back to a number
-        let reversedNum = parseInt(reversedStrNum, 10);
-        return reversedNum;
-    }
-    let x = 32243;
-    document.getElementById("emo").innerHTML=x;
-    document.getElementById("demo").innerHTML=reverseNumber(x);
+        function reversenumber() {
+                let number = document.getElementById("num").value;
+                let result = 0;
+
+                while (number > 0) {
+                    rightmost = number % 10;
+                    result = result * 10 + rightmost;
+                    number = Math.floor(number / 10);
+                }
+                document.getElementById("resultNum").innerText = "After reversing the number : " + result; 
+
+            }
     </script>
 </body>
 </html>
