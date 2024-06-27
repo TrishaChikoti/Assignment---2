@@ -3,29 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS-2</title>
+    <title>Document</title>
 </head>
 <body>
-    <h2>Alphabetical order.</h2>
-    <p>Given string</p>
-    <p id="emo"></p>
-    <p>Alphabetical order is</p>
-    <p id="demo"></p>
+    <label for="aString">Enter String : </label>
+    <input type="text" id="aString" onkeyup="aplaOrder()">
+    <br><br><br>
+    <div id="output"></div>
+    <br><br>
+    <h1>Functions Used</h1>
+    <pre>
+        function sortAlpha(word) {
+            return word.split("")
+                .sort()
+                .join("");
+        }
+        function aplaOrder(){
+            var str = document.getElementById("aString").value;
+            document.getElementById("output").innerText = "String in alphabet order : "+ sortAlpha(str);
+        }
+    </pre>
     <script>
-        function alphabetizeString(str) {
-    // Split the string into an array of characters
-    let charsArray = str.split('');
-    // Sort the array of characters alphabetically
-    let sortedArray = charsArray.sort();
-    // Join the sorted array back into a string
-    let sortedString = sortedArray.join('');
-    return sortedString;
-}
-
-let exampleString = 'webmaster';
-document.getElementById("emo").innerHTML=exampleString;
-let result = alphabetizeString(exampleString);
-document.getElementById("demo").innerHTML= result;
+        function sortAlpha(word) {
+            return word.split("")
+                .sort()
+                .join("");
+        }
+        function aplaOrder(){
+            var str = document.getElementById("aString").value;
+            document.getElementById("output").innerText = "String in alphabet order : "+ sortAlpha(str);
+        }
     </script>
 </body>
 </html>
